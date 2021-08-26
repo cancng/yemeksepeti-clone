@@ -23,9 +23,7 @@ export default extendTheme({
   styles: {
     global: {
       body: {
-        height: '100%',
         minHeight: '100vh',
-        scrollBehavior: 'smooth',
       },
     },
   },

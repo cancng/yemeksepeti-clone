@@ -1,12 +1,7 @@
-import Header from '../components/Header';
-import Layout from '../components/Layout';
+import Layout from '../components/static/Layout';
 
-function index() {
-  return (
-    <>
-      <Layout></Layout>
-    </>
-  );
+function Home() {
+  return <Layout />;
 }
 
-export default index;
+export default Home;

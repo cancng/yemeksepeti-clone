@@ -27,7 +27,7 @@ class MyDocument extends Document {
             rel='stylesheet'
           />
         </Head>
-        <body className='px-2 font-oxygen bg-brand-bg xl:px-0'>
+        <body>
           <Main />
           <NextScript />
         </body>
