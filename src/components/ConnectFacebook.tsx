@@ -1,7 +1,7 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, FlexProps, Text } from '@chakra-ui/react';
 import { GrFacebook } from 'react-icons/gr';
 
-function ConnectFacebook() {
+function ConnectFacebook(props: FlexProps) {
   return (
     <Flex
       bgColor='facebook.500'
@@ -12,6 +12,7 @@ function ConnectFacebook() {
       alignItems='center'
       justifyContent='center'
       rounded='sm'
+      {...props}
     >
       <GrFacebook size={16} style={{ marginRight: 6 }} />
       <Text fontSize='14px'>Facebook Hesabını Bağla</Text>

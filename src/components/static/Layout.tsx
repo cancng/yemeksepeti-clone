@@ -88,6 +88,7 @@ const Layout: React.FC = () => {
                       position='absolute'
                       // bottom='568px'
                       top='300px'
+                      display={['none', 'none', 'block']}
                     >
                       Yeni Adres Ekle
                     </Text>
@@ -136,6 +137,7 @@ const Layout: React.FC = () => {
                         position='absolute'
                         // bottom='568px'
                         top='300px'
+                        display={['none', 'none', 'block']}
                       >
                         Tüm Siparişlerimi Görüntüle
                       </Text>

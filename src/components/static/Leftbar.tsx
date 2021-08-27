@@ -9,15 +9,24 @@ import {
   SimpleGrid,
   Text,
   VStack,
+  useBoolean,
+  FlexProps,
+  BoxProps,
 } from '@chakra-ui/react';
 import React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { FaChevronDown, FaRegTrashAlt, FaTimes } from 'react-icons/fa';
 import ConnectFacebook from '../ConnectFacebook';
 
+const MotionFlex = motion<Omit<FlexProps, 'transition'>>(Flex);
+const MotionBox = motion<Omit<BoxProps, 'transition'>>(Box);
+
 function Leftbar() {
+  const [isOpen, { toggle }] = useBoolean(false);
+
   return (
     <Flex w={['100%', '100%', '25%']} mr={['0', '0', '10px']}>
-      <VStack spacing='4' w='full'>
+      <VStack spacing='1' w='full'>
         <Flex
           bgColor='gray.100'
           border='1px'
@@ -42,8 +51,67 @@ function Leftbar() {
               <chakra.span fontSize='sm'>16 Toplam puan</chakra.span>
             </Flex>
           </Box>
-          <FaChevronDown />
+          <MotionBox
+            animate={{
+              rotate: isOpen ? 180 : 0,
+            }}
+            transition={{
+              duration: 0.35,
+            }}
+          >
+            <FaChevronDown onClick={toggle} />
+          </MotionBox>
         </Flex>
+
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <MotionFlex
+              border='1px solid #e5e5e5'
+              borderTop='none'
+              flexDir='column'
+              w='full'
+              initial='collapsed'
+              animate='open'
+              exit='collapsed'
+              variants={{
+                open: { height: 'auto', opacity: 1 },
+                collapsed: { height: 0, opacity: 0 },
+              }}
+              transition={{ duration: 0.35 }}
+            >
+              <Flex flexDir='column' px='2' py='1'>
+                <Text fontWeight='bold' fontSize='13px'>
+                  Bildirimlerim
+                </Text>
+                <Text fontWeight='bold' fontSize='13px'>
+                  Profilim
+                </Text>
+                <Text fontWeight='bold' fontSize='13px'>
+                  Siparişlerim
+                </Text>
+                <Text fontWeight='bold' fontSize='13px'>
+                  Favorilerim
+                </Text>
+                <Text fontWeight='bold' fontSize='13px'>
+                  Adreslerim
+                </Text>
+                <Text fontWeight='bold' fontSize='13px'>
+                  Bilgilerim
+                </Text>
+              </Flex>
+              <Flex
+                px='2'
+                py='3'
+                bgColor='#eff0f2'
+                color='brand.red200'
+                fontWeight='bold'
+                fontSize='13px'
+              >
+                ÇIKIŞ YAP
+              </Flex>
+            </MotionFlex>
+          )}
+        </AnimatePresence>
 
         <ConnectFacebook />
 
