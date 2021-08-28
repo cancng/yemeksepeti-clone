@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Badge,
   Box,
+  Button,
   Container,
   Flex,
   HStack,
@@ -17,6 +18,7 @@ import {
 import Header from './Header';
 import { FaHome, FaPizzaSlice, FaStar } from 'react-icons/fa';
 import { FiMapPin } from 'react-icons/fi';
+import { IoRefresh } from 'react-icons/io5';
 import Slider from 'react-slick';
 
 import ConnectFacebook from '../ConnectFacebook';
@@ -117,17 +119,42 @@ const Layout: React.FC = () => {
                   </TabList>
                   <TabPanels>
                     <TabPanel>
-                      <HStack mb='2'>
-                        <Badge colorScheme='green'>9,1</Badge>
-                        <Text fontSize='13px'>
-                          Pizza House (Ziyapaşa mah.) - 1 hafta önce
-                        </Text>
+                      <HStack mb='2' justifyContent='space-between'>
+                        <Flex>
+                          <Badge colorScheme='green' mr='2'>
+                            9,1
+                          </Badge>
+                          <Text fontSize='13px'>
+                            Pizza House (Ziyapaşa mah.) - 1 hafta önce
+                          </Text>
+                        </Flex>
+                        <Button
+                          size='sm'
+                          fontSize='11px'
+                          variant='outline'
+                          _hover={{ color: 'brand.orange' }}
+                        >
+                          <IoRefresh /> Tekrarla
+                        </Button>
                       </HStack>
-                      <HStack>
-                        <Badge colorScheme='yellow'>6,4</Badge>
-                        <Text fontSize='13px'>
-                          Pizza House (Ziyapaşa mah.) - 3 hafta önce
-                        </Text>
+
+                      <HStack mb='2' justifyContent='space-between'>
+                        <Flex>
+                          <Badge colorScheme='yellow' mr='2'>
+                            7,0
+                          </Badge>
+                          <Text fontSize='13px'>
+                            Pizza House (Ziyapaşa mah.) - 2 hafta önce
+                          </Text>
+                        </Flex>
+                        <Button
+                          size='sm'
+                          fontSize='11px'
+                          variant='outline'
+                          _hover={{ color: 'brand.orange' }}
+                        >
+                          <IoRefresh /> Tekrarla
+                        </Button>
                       </HStack>
 
                       <Text
